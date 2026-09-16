@@ -76,6 +76,19 @@ both at once: a JSON log line you can pipe to `jq`, a snapshot file you
 can diff, a debug dump you can copy back into a test fixture — without
 giving up readable line-wrapping and color.
 
+## Development
+
+```sh
+git clone git@github.com:AxFab/jspp.git
+cd jspp
+npm install
+npm test          # run the test suite
+npm run lint      # typecheck (tsc --noEmit)
+npm run build     # emit dist/ (ESM + CJS + types)
+```
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full workflow.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE).
