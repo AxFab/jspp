@@ -1,0 +1,58 @@
+{
+  "name": "@axfab/jspp",
+  "version": "0.1.0",
+  "description": "JSON.stringify with util.inspect-style formatting: valid JSON output, ANSI colors, and smart line wrapping.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run build:cjs",
+    "build:cjs": "esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/index.cjs",
+    "test": "node --experimental-strip-types --test test/*.test.ts",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run lint && npm run test && npm run build"
+  },
+  "keywords": [
+    "json",
+    "stringify",
+    "inspect",
+    "util.inspect",
+    "pretty-print",
+    "colors",
+    "cli"
+  ],
+  "author": "Fabien Bavent",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axfab/jspp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/axfab/jspp/issues"
+  },
+  "homepage": "https://github.com/axfab/jspp#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.2",
+    "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
